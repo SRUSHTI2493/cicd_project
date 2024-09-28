@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Profileeeee</title>
+    <title>Student Profile</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f8ff; /* Light blue background */
             margin: 0;
             padding: 0;
         }
@@ -15,31 +15,50 @@
             max-width: 800px;
             margin: 50px auto;
             background-color: white;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
         h1 {
             text-align: center;
-            color: #333;
+            color: #2a9d8f; /* Dark teal color */
+            font-size: 36px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
         }
         .profile-img {
             display: block;
-            margin: 0 auto;
+            margin: 20px auto;
             border-radius: 50%;
             width: 150px;
             height: 150px;
+            border: 5px solid #2a9d8f; /* Teal border for the image */
         }
         .student-details {
             margin-top: 20px;
+            padding: 15px;
+            background-color: #e9c46a; /* Soft yellow background */
+            border-radius: 10px;
         }
         .student-details p {
-            font-size: 18px;
-            color: #555;
-            line-height: 1.6;
+            font-size: 20px;
+            color: #264653; /* Dark slate blue color */
+            line-height: 1.8;
         }
         .student-details p span {
             font-weight: bold;
-            color: #333;
+            color: #e76f51; /* Reddish-orange color for labels */
+        }
+        .student-details p:hover {
+            color: #f4a261; /* Lighter orange when hovering over text */
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #264653;
+            color: white;
+            margin-top: 30px;
+            border-radius: 0 0 15px 15px;
         }
     </style>
 </head>
@@ -59,6 +78,11 @@
         </div>
     </div>
 
+    <footer>
+        © 2024 Student Profiles Inc.
+    </footer>
+
 </body>
 </html>
+
 
