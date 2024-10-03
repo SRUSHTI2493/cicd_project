@@ -1,88 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Profile</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f0f8ff; /* Light blue background */
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            max-width: 800px;
-            margin: 50px auto;
-            background-color: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-        h1 {
-            text-align: center;
-            color: #2a9d8f; /* Dark teal color */
-            font-size: 36px;
-            text-transform: uppercase;
-            margin-bottom: 20px;
-        }
-        .profile-img {
-            display: block;
-            margin: 20px auto;
-            border-radius: 50%;
-            width: 150px;
-            height: 150px;
-            border: 5px solid #2a9d8f; /* Teal border for the image */
-        }
-        .student-details {
-            margin-top: 20px;
-            padding: 15px;
-            background-color: #e9c46a; /* Soft yellow background */
-            border-radius: 10px;
-        }
-        .student-details p {
-            font-size: 20px;
-            color: #264653; /* Dark slate blue color */
-            line-height: 1.8;
-        }
-        .student-details p span {
-            font-weight: bold;
-            color: #e76f51; /* Reddish-orange color for labels */
-        }
-        .student-details p:hover {
-            color: #f4a261; /* Lighter orange when hovering over text */
-        }
-        footer {
-            text-align: center;
-            padding: 20px;
-            background-color: #264653;
-            color: white;
-            margin-top: 30px;
-            border-radius: 0 0 15px 15px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Music Player</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f4f4f4;
+    }
+    .music-player {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+    audio {
+      width: 100%;
+      margin-top: 10px;
+    }
+    .controls {
+      margin-top: 15px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+    .controls button {
+      padding: 10px 15px;
+      border: none;
+      background-color: #ff6600;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .controls button:hover {
+      background-color: #ff4500;
+    }
+    .progress-bar {
+      width: 100%;
+      height: 10px;
+      background-color: #ddd;
+      border-radius: 5px;
+      margin-top: 15px;
+      position: relative;
+    }
+    .progress {
+      width: 0;
+      height: 100%;
+      background-color: #ff6600;
+      border-radius: 5px;
+    }
+  </style>
 </head>
 <body>
 
-    <div class="container">
-        <h1>Student Profile</h1>
-        <img src="student-profile.jpg" alt="Student Photo" class="profile-img">
-        
-        <div class="student-details">
-            <p><span>Name:</span> John Doe</p>
-            <p><span>Age:</span> 20</p>
-            <p><span>Course:</span> Bachelor of Computer Science</p>
-            <p><span>Year:</span> 2nd Year</p>
-            <p><span>Hobbies:</span> Coding, Basketball, Reading Books</p>
-            <p><span>Email:</span> johndoe@example.com</p>
-        </div>
+  <div class="music-player">
+    <h2>Music Player</h2>
+    <audio id="audio" src="your-audio-file.mp3"></audio>
+
+    <div class="controls">
+      <button onclick="playAudio()">Play</button>
+      <button onclick="pauseAudio()">Pause</button>
     </div>
 
-    <footer>
-        © 2024 Student Profiles Inc.
-    </footer>
+    <div class="progress-bar" id="progress-bar">
+      <div class="progress" id="progress"></div>
+    </div>
+  </div>
+
+  <script>
+    const audio = document.getElementById('audio');
+    const progressBar = document.getElementById('progress-bar');
+    const progress = document.getElementById('progress');
+
+    function playAudio() {
+      audio.play();
+    }
+
+    function pauseAudio() {
+      audio.pause();
+    }
+
+    audio.ontimeupdate = function () {
+      const percentage = (audio.currentTime / audio.duration) * 100;
+      progress.style.width = percentage + '%';
+    };
+
+    progressBar.onclick = function (event) {
+      const clickX = event.offsetX;
+      const width = progressBar.clientWidth;
+      const duration = audio.duration;
+
+      audio.currentTime = (clickX / width) * duration;
+    };
+  </script>
 
 </body>
 </html>
-
-
